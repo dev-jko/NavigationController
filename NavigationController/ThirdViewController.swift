@@ -81,9 +81,8 @@ class ThirdViewController: UIViewController {
     
     @objc
     private func parentBtnClicked(_ sender: UIButton) {
-        if let vcs = navigationController?.viewControllers {
-            let vc = vcs[vcs.count - 2]
-            navigationController?.popToViewController(vc, animated: true)
-        }
+        guard let vcs = navigationController?.viewControllers, vcs.count > 1 else { return }
+        let vc = vcs[vcs.count - 2]
+        navigationController?.popToViewController(vc, animated: true)
     }
 }
